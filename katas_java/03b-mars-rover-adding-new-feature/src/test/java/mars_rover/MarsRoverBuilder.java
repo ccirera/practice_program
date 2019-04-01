@@ -15,7 +15,7 @@ public class MarsRoverBuilder {
     }
 
     public static MarsRoverBuilder aMarsRoverAnyWhere() {
-        return aMarsRover().startingAt(0, 0).facing("N");
+        return aMarsRover().startingAt(0, 0).facing("W");
     }
 
     public MarsRoverBuilder startingAt(int xCoordinate, int yCoordinate) {

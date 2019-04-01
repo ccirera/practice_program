@@ -94,91 +94,91 @@ public class MarsRoverTest {
 
     @Test
     public void moves_forward_when_pointing_north() {
-        MarsRover marsRover = new MarsRover(5, 4, "N");
+        MarsRover marsRover = aMarsRoverAnyWhere().startingAt(5, 4).facing("N").build();
 
         marsRover.receive("f");
 
-        assertThat(marsRover, is(new MarsRover(5, 5, "N")));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().startingAt(5, 5).facing("N").build()));
     }
 
     @Test
     public void moves_forward_when_pointing_east() {
-        MarsRover marsRover = new MarsRover(5, 4, "E");
+        MarsRover marsRover = aMarsRoverAnyWhere().startingAt(5, 4).facing("E").build();
 
         marsRover.receive("f");
 
-        assertThat(marsRover, is(new MarsRover(6, 4, "E")));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().startingAt(6, 4).facing("E").build()));
     }
 
     @Test
     public void moves_forward_when_pointing_south() {
-        MarsRover marsRover = new MarsRover(5, 4, "S");
+        MarsRover marsRover = aMarsRoverAnyWhere().startingAt(5, 4).facing("S").build();
 
         marsRover.receive("f");
 
-        assertThat(marsRover, is(new MarsRover(5, 3, "S")));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().startingAt(5, 3).facing("S").build()));
     }
 
     @Test
     public void moves_forward_when_pointing_west() {
-        MarsRover marsRover = new MarsRover(5, 4, "W");
+        MarsRover marsRover = aMarsRoverAnyWhere().startingAt(5, 4).facing("W").build();
 
         marsRover.receive("f");
 
-        assertThat(marsRover, is(new MarsRover(4, 4, "W")));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().startingAt(4, 4).facing("W").build()));
     }
 
     @Test
     public void moves_backward_when_pointing_north() {
-        MarsRover marsRover = new MarsRover(5, 4, "N");
+        MarsRover marsRover = aMarsRoverAnyWhere().startingAt(5, 4).facing("N").build();
 
         marsRover.receive("b");
 
-        assertThat(marsRover, is(new MarsRover(5, 3, "N")));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().startingAt(5, 3).facing("N").build()));
     }
 
     @Test
     public void moves_backward_when_pointing_east() {
-        MarsRover marsRover = new MarsRover(5, 4, "E");
+        MarsRover marsRover = aMarsRoverAnyWhere().startingAt(5, 4).facing("E").build();
 
         marsRover.receive("b");
 
-        assertThat(marsRover, is(new MarsRover(4, 4, "E")));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().startingAt(4, 4).facing("E").build()));
     }
 
     @Test
     public void moves_backward_when_pointing_south() {
-        MarsRover marsRover = new MarsRover(5, 4, "S");
+        MarsRover marsRover = aMarsRoverAnyWhere().startingAt(5, 4).facing("S").build();
 
         marsRover.receive("b");
 
-        assertThat(marsRover, is(new MarsRover(5, 5, "S")));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().startingAt(5, 5).facing("S").build()));
     }
 
     @Test
     public void moves_backward_when_pointing_west() {
-        MarsRover marsRover = new MarsRover(5, 4, "W");
+        MarsRover marsRover = aMarsRoverAnyWhere().startingAt(5, 4).facing("W").build();
 
         marsRover.receive("b");
 
-        assertThat(marsRover, is(new MarsRover(6, 4, "W")));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().startingAt(6, 4).facing("W").build()));
     }
 
     @Test
     public void receives_multiple_commands() {
-        MarsRover marsRover = new MarsRover(7, 4, "E");
+        MarsRover marsRover = aMarsRoverAnyWhere().startingAt(7, 4).facing("E").build();
 
         marsRover.receive("fr");
 
-        assertThat(marsRover, is(new MarsRover(8, 4, "S")));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().startingAt(8, 4).facing("S").build()));
     }
 
     @Test
     public void ignores_unknown_commands() {
-        MarsRover marsRover = new MarsRover(7, 4, "E");
+        MarsRover marsRover = aMarsRoverAnyWhere().startingAt(7, 4).facing("E").build();
 
         marsRover.receive("*");
 
-        assertThat(marsRover, is(new MarsRover(7, 4, "E")));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().startingAt(7, 4).facing("E").build()));
     }
 }
