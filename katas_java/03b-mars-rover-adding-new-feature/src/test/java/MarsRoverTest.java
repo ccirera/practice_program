@@ -1,6 +1,8 @@
 import mars_rover.MarsRover;
 import org.junit.Test;
 
+import static mars_rover.MarsRoverBuilder.aMarsRoverAnyWhere;
+import static mars_rover.MarsRoverBuilder.anyMarsRover;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -8,88 +10,85 @@ public class MarsRoverTest {
 
     @Test
     public void does_nothing_when_receiving_empty_commands_sequence() {
-        MarsRover marsRover = new MarsRoverBuilder().facing("N").build();
+        MarsRover marsRover = anyMarsRover().build();
 
         marsRover.receive("");
 
-        String direction = "N";
-        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing(direction).build()));
+        assertThat(marsRover, is(anyMarsRover().build()));
     }
 
     @Test
     public void turns_right_when_pointing_north() {
-        String direction = "N";
-        MarsRover marsRover = new MarsRoverBuilder().startingAt(0, 0).facing(direction).build();
+        MarsRover marsRover = aMarsRoverAnyWhere().facing("N").build();
 
         marsRover.receive("r");
 
-        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing("E").build()));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().facing("E").build()));
     }
 
     @Test
     public void turns_right_when_pointing_east() {
-        MarsRover marsRover = new MarsRoverBuilder().startingAt(0, 0).facing("E").build();
+        MarsRover marsRover = aMarsRoverAnyWhere().facing("E").build();
 
         marsRover.receive("r");
 
-        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing("S").build()));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().facing("S").build()));
     }
 
     @Test
     public void turns_right_when_pointing_south() {
-        MarsRover marsRover = new MarsRoverBuilder().startingAt(0, 0).facing("S").build();
+        MarsRover marsRover = aMarsRoverAnyWhere().facing("S").build();
 
         marsRover.receive("r");
 
-        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing("W").build()));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().facing("W").build()));
     }
 
     @Test
     public void turns_right_when_pointing_west() {
-        MarsRover marsRover = new MarsRoverBuilder().startingAt(0, 0).facing("W").build();
+        MarsRover marsRover = aMarsRoverAnyWhere().facing("W").build();
 
         marsRover.receive("r");
 
         String direction = "N";
-        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing(direction).build()));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().facing(direction).build()));
     }
 
     @Test
     public void turns_left_when_pointing_north() {
         String direction = "N";
-        MarsRover marsRover = new MarsRoverBuilder().startingAt(0, 0).facing(direction).build();
+        MarsRover marsRover = aMarsRoverAnyWhere().facing(direction).build();
 
         marsRover.receive("l");
 
-        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing("W").build()));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().facing("W").build()));
     }
 
     @Test
     public void turns_left_when_pointing_west() {
-        MarsRover marsRover = new MarsRoverBuilder().startingAt(0, 0).facing("W").build();
+        MarsRover marsRover = aMarsRoverAnyWhere().facing("W").build();
 
         marsRover.receive("l");
 
-        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing("S").build()));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().facing("S").build()));
     }
 
     @Test
     public void turns_left_when_pointing_south() {
-        MarsRover marsRover = new MarsRoverBuilder().startingAt(0, 0).facing("S").build();
+        MarsRover marsRover = aMarsRoverAnyWhere().facing("S").build();
 
         marsRover.receive("l");
 
-        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing("E").build()));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().facing("E").build()));
     }
 
     @Test
     public void turns_left_when_pointing_east() {
-        MarsRover marsRover = new MarsRoverBuilder().startingAt(0, 0).facing("E").build();
+        MarsRover marsRover = aMarsRoverAnyWhere().facing("E").build();
 
         marsRover.receive("l");
 
-        String direction = "N";
-        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing(direction).build()));
+        assertThat(marsRover, is(aMarsRoverAnyWhere().facing("N").build()));
     }
 
     @Test
