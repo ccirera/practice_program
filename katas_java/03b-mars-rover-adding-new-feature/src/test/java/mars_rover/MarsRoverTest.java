@@ -1,4 +1,5 @@
-import mars_rover.MarsRover;
+package mars_rover;
+
 import org.junit.Test;
 
 import static mars_rover.MarsRoverBuilder.aMarsRoverAnyWhere;
@@ -93,74 +94,74 @@ public class MarsRoverTest {
 
     @Test
     public void moves_forward_when_pointing_north() {
-        MarsRover marsRover = new MarsRover(5,4, "N");
+        MarsRover marsRover = new MarsRover(5, 4, "N");
 
         marsRover.receive("f");
 
-        assertThat(marsRover, is(new MarsRover(5,5, "N")));
+        assertThat(marsRover, is(new MarsRover(5, 5, "N")));
     }
 
     @Test
     public void moves_forward_when_pointing_east() {
-        MarsRover marsRover = new MarsRover(5,4, "E");
+        MarsRover marsRover = new MarsRover(5, 4, "E");
 
         marsRover.receive("f");
 
-        assertThat(marsRover, is(new MarsRover(6,4, "E")));
+        assertThat(marsRover, is(new MarsRover(6, 4, "E")));
     }
 
     @Test
     public void moves_forward_when_pointing_south() {
-        MarsRover marsRover = new MarsRover(5,4, "S");
+        MarsRover marsRover = new MarsRover(5, 4, "S");
 
         marsRover.receive("f");
 
-        assertThat(marsRover, is(new MarsRover(5,3, "S")));
+        assertThat(marsRover, is(new MarsRover(5, 3, "S")));
     }
 
     @Test
     public void moves_forward_when_pointing_west() {
-        MarsRover marsRover = new MarsRover(5,4, "W");
+        MarsRover marsRover = new MarsRover(5, 4, "W");
 
         marsRover.receive("f");
 
-        assertThat(marsRover, is(new MarsRover(4,4, "W")));
+        assertThat(marsRover, is(new MarsRover(4, 4, "W")));
     }
 
     @Test
     public void moves_backward_when_pointing_north() {
-        MarsRover marsRover = new MarsRover(5,4, "N");
+        MarsRover marsRover = new MarsRover(5, 4, "N");
 
         marsRover.receive("b");
 
-        assertThat(marsRover, is(new MarsRover(5,3, "N")));
+        assertThat(marsRover, is(new MarsRover(5, 3, "N")));
     }
 
     @Test
     public void moves_backward_when_pointing_east() {
-        MarsRover marsRover = new MarsRover(5,4, "E");
+        MarsRover marsRover = new MarsRover(5, 4, "E");
 
         marsRover.receive("b");
 
-        assertThat(marsRover, is(new MarsRover(4,4, "E")));
+        assertThat(marsRover, is(new MarsRover(4, 4, "E")));
     }
 
     @Test
     public void moves_backward_when_pointing_south() {
-        MarsRover marsRover = new MarsRover(5,4, "S");
+        MarsRover marsRover = new MarsRover(5, 4, "S");
 
         marsRover.receive("b");
 
-        assertThat(marsRover, is(new MarsRover(5,5, "S")));
+        assertThat(marsRover, is(new MarsRover(5, 5, "S")));
     }
 
     @Test
     public void moves_backward_when_pointing_west() {
-        MarsRover marsRover = new MarsRover(5,4, "W");
+        MarsRover marsRover = new MarsRover(5, 4, "W");
 
         marsRover.receive("b");
 
-        assertThat(marsRover, is(new MarsRover(6,4, "W")));
+        assertThat(marsRover, is(new MarsRover(6, 4, "W")));
     }
 
     @Test
