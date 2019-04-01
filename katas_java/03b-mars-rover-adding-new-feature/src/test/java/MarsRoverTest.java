@@ -8,83 +8,83 @@ public class MarsRoverTest {
 
     @Test
     public void does_nothing_when_receiving_empty_commands_sequence() {
-        MarsRover marsRover = new MarsRover(0,0, "N");
+        MarsRover marsRover = getMarsRoverNorth();
 
         marsRover.receive("");
 
-        assertThat(marsRover, is(new MarsRover(0,0, "N")));
+        assertThat(marsRover, is(getMarsRoverNorth()));
     }
 
     @Test
     public void turns_right_when_pointing_north() {
-        MarsRover marsRover = new MarsRover(0,0, "N");
+        MarsRover marsRover = getMarsRoverNorth();
 
         marsRover.receive("r");
 
-        assertThat(marsRover, is(new MarsRover(0,0, "E")));
+        assertThat(marsRover, is(getMarsRoverEast()));
     }
 
     @Test
     public void turns_right_when_pointing_east() {
-        MarsRover marsRover = new MarsRover(0,0, "E");
+        MarsRover marsRover = getMarsRoverEast();
 
         marsRover.receive("r");
 
-        assertThat(marsRover, is(new MarsRover(0,0, "S")));
+        assertThat(marsRover, is(getMarsRoverSouth()));
     }
 
     @Test
     public void turns_right_when_pointing_south() {
-        MarsRover marsRover = new MarsRover(0,0, "S");
+        MarsRover marsRover = getMarsRoverSouth();
 
         marsRover.receive("r");
 
-        assertThat(marsRover, is(new MarsRover(0,0, "W")));
+        assertThat(marsRover, is(getMarsRoverWest()));
     }
 
     @Test
     public void turns_right_when_pointing_west() {
-        MarsRover marsRover = new MarsRover(0,0, "W");
+        MarsRover marsRover = getMarsRoverWest();
 
         marsRover.receive("r");
 
-        assertThat(marsRover, is(new MarsRover(0,0, "N")));
+        assertThat(marsRover, is(getMarsRoverNorth()));
     }
 
     @Test
     public void turns_left_when_pointing_north() {
-        MarsRover marsRover = new MarsRover(0,0, "N");
+        MarsRover marsRover = getMarsRoverNorth();
 
         marsRover.receive("l");
 
-        assertThat(marsRover, is(new MarsRover(0,0, "W")));
+        assertThat(marsRover, is(getMarsRoverWest()));
     }
 
     @Test
     public void turns_left_when_pointing_west() {
-        MarsRover marsRover = new MarsRover(0,0, "W");
+        MarsRover marsRover = getMarsRoverWest();
 
         marsRover.receive("l");
 
-        assertThat(marsRover, is(new MarsRover(0,0, "S")));
+        assertThat(marsRover, is(getMarsRoverSouth()));
     }
 
     @Test
     public void turns_left_when_pointing_south() {
-        MarsRover marsRover = new MarsRover(0,0, "S");
+        MarsRover marsRover = getMarsRoverSouth();
 
         marsRover.receive("l");
 
-        assertThat(marsRover, is(new MarsRover(0,0, "E")));
+        assertThat(marsRover, is(getMarsRoverEast()));
     }
 
     @Test
     public void turns_left_when_pointing_east() {
-        MarsRover marsRover = new MarsRover(0,0, "E");
+        MarsRover marsRover = getMarsRoverEast();
 
         marsRover.receive("l");
 
-        assertThat(marsRover, is(new MarsRover(0,0, "N")));
+        assertThat(marsRover, is(getMarsRoverNorth()));
     }
 
     @Test
@@ -175,5 +175,29 @@ public class MarsRoverTest {
         marsRover.receive("*");
 
         assertThat(marsRover, is(new MarsRover(7, 4, "E")));
+    }
+
+    private MarsRover getMarsRoverNorth() {
+        String direction = "N";
+        return getMarsRoverInOrigin(direction);
+    }
+
+    private MarsRover getMarsRoverEast() {
+        String direction = "E";
+        return getMarsRoverInOrigin(direction);
+    }
+
+    private MarsRover getMarsRoverSouth() {
+        String direction = "S";
+        return getMarsRoverInOrigin(direction);
+    }
+
+    private MarsRover getMarsRoverWest() {
+        String direction = "W";
+        return getMarsRoverInOrigin(direction);
+    }
+
+    private MarsRover getMarsRoverInOrigin(String direction) {
+        return new MarsRoverBuilder().setCoordinates(0, 0).setDirection(direction).build();
     }
 }
