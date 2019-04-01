@@ -6,13 +6,13 @@ public class MarsRoverBuilder {
     private int yCoordinate;
     private String direction;
 
-    public MarsRoverBuilder setCoordinates(int xCoordinate, int yCoordinate) {
+    public MarsRoverBuilder startingAt(int xCoordinate, int yCoordinate) {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
         return this;
     }
 
-    public MarsRoverBuilder setDirection(String direction) {
+    public MarsRoverBuilder facing(String direction) {
         this.direction = direction;
         return this;
     }

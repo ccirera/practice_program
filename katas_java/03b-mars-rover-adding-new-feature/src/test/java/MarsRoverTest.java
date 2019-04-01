@@ -8,83 +8,88 @@ public class MarsRoverTest {
 
     @Test
     public void does_nothing_when_receiving_empty_commands_sequence() {
-        MarsRover marsRover = getMarsRoverNorth();
+        MarsRover marsRover = new MarsRoverBuilder().facing("N").build();
 
         marsRover.receive("");
 
-        assertThat(marsRover, is(getMarsRoverNorth()));
+        String direction = "N";
+        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing(direction).build()));
     }
 
     @Test
     public void turns_right_when_pointing_north() {
-        MarsRover marsRover = getMarsRoverNorth();
+        String direction = "N";
+        MarsRover marsRover = new MarsRoverBuilder().startingAt(0, 0).facing(direction).build();
 
         marsRover.receive("r");
 
-        assertThat(marsRover, is(getMarsRoverEast()));
+        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing("E").build()));
     }
 
     @Test
     public void turns_right_when_pointing_east() {
-        MarsRover marsRover = getMarsRoverEast();
+        MarsRover marsRover = new MarsRoverBuilder().startingAt(0, 0).facing("E").build();
 
         marsRover.receive("r");
 
-        assertThat(marsRover, is(getMarsRoverSouth()));
+        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing("S").build()));
     }
 
     @Test
     public void turns_right_when_pointing_south() {
-        MarsRover marsRover = getMarsRoverSouth();
+        MarsRover marsRover = new MarsRoverBuilder().startingAt(0, 0).facing("S").build();
 
         marsRover.receive("r");
 
-        assertThat(marsRover, is(getMarsRoverWest()));
+        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing("W").build()));
     }
 
     @Test
     public void turns_right_when_pointing_west() {
-        MarsRover marsRover = getMarsRoverWest();
+        MarsRover marsRover = new MarsRoverBuilder().startingAt(0, 0).facing("W").build();
 
         marsRover.receive("r");
 
-        assertThat(marsRover, is(getMarsRoverNorth()));
+        String direction = "N";
+        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing(direction).build()));
     }
 
     @Test
     public void turns_left_when_pointing_north() {
-        MarsRover marsRover = getMarsRoverNorth();
+        String direction = "N";
+        MarsRover marsRover = new MarsRoverBuilder().startingAt(0, 0).facing(direction).build();
 
         marsRover.receive("l");
 
-        assertThat(marsRover, is(getMarsRoverWest()));
+        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing("W").build()));
     }
 
     @Test
     public void turns_left_when_pointing_west() {
-        MarsRover marsRover = getMarsRoverWest();
+        MarsRover marsRover = new MarsRoverBuilder().startingAt(0, 0).facing("W").build();
 
         marsRover.receive("l");
 
-        assertThat(marsRover, is(getMarsRoverSouth()));
+        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing("S").build()));
     }
 
     @Test
     public void turns_left_when_pointing_south() {
-        MarsRover marsRover = getMarsRoverSouth();
+        MarsRover marsRover = new MarsRoverBuilder().startingAt(0, 0).facing("S").build();
 
         marsRover.receive("l");
 
-        assertThat(marsRover, is(getMarsRoverEast()));
+        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing("E").build()));
     }
 
     @Test
     public void turns_left_when_pointing_east() {
-        MarsRover marsRover = getMarsRoverEast();
+        MarsRover marsRover = new MarsRoverBuilder().startingAt(0, 0).facing("E").build();
 
         marsRover.receive("l");
 
-        assertThat(marsRover, is(getMarsRoverNorth()));
+        String direction = "N";
+        assertThat(marsRover, is(new MarsRoverBuilder().startingAt(0, 0).facing(direction).build()));
     }
 
     @Test
@@ -175,29 +180,5 @@ public class MarsRoverTest {
         marsRover.receive("*");
 
         assertThat(marsRover, is(new MarsRover(7, 4, "E")));
-    }
-
-    private MarsRover getMarsRoverNorth() {
-        String direction = "N";
-        return getMarsRoverInOrigin(direction);
-    }
-
-    private MarsRover getMarsRoverEast() {
-        String direction = "E";
-        return getMarsRoverInOrigin(direction);
-    }
-
-    private MarsRover getMarsRoverSouth() {
-        String direction = "S";
-        return getMarsRoverInOrigin(direction);
-    }
-
-    private MarsRover getMarsRoverWest() {
-        String direction = "W";
-        return getMarsRoverInOrigin(direction);
-    }
-
-    private MarsRover getMarsRoverInOrigin(String direction) {
-        return new MarsRoverBuilder().setCoordinates(0, 0).setDirection(direction).build();
     }
 }
