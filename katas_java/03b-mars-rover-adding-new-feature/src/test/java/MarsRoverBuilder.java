@@ -2,9 +2,9 @@ import mars_rover.MarsRover;
 
 public class MarsRoverBuilder {
 
-    private int xCoordinate;
-    private int yCoordinate;
-    private String direction;
+    private int xCoordinate = 0;
+    private int yCoordinate = 0;
+    private String direction = "N";
 
     public MarsRoverBuilder startingAt(int xCoordinate, int yCoordinate) {
         this.xCoordinate = xCoordinate;
