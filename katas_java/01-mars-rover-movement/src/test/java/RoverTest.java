@@ -6,7 +6,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class RoverTest {
 
     @Test
-    public void fix_and_rename_me() {
+    public void fix_and_rename_me_git_test() {
         assertThat(true, is(false));
     }
 }
